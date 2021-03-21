@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#define BLYNK_PRINT Serial // лог работы модуля в мониторе
+#define BLYNK_PRINT Serial
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 #include <SimpleTimer.h>
@@ -35,11 +35,10 @@ boolean flag = false;
 
 void setup()
 {
-  Serial.begin(9600);                           // See the connection status in Serial Monitor
-  Blynk.begin(auth, "mikrot2", "Sparta130855"); //подключаем свою WIFI сеть
-  //Blynk.begin(auth, "Darknet", "*D20021976K*"); //подключаем свою WIFI сеть
+  Serial.begin(9600);
+  Blynk.begin(auth, "mikrot2", "Sparta130855");
   pinMode(ledGPS, OUTPUT);
-  pinMode(bazzer, OUTPUT); //объявляем пин как выход
+  pinMode(bazzer, OUTPUT);
 
   unsigned status = bme.begin(0x76);
 
@@ -98,21 +97,20 @@ BLYNK_WRITE(V2)
     {
       Serial.println("Досягнуто місце призначення");
       digitalWrite(ledGPS, HIGH);
-      tone(bazzer, 200); //включаем на 500 Гц
+      tone(bazzer, 200);
       delay(400);
-      tone(bazzer, 400); //включаем на 1000 Гц
+      tone(bazzer, 400);
       delay(500);
-      tone(bazzer, 600); //включаем на 500 Гц
+      tone(bazzer, 600);
       delay(600);
-      tone(bazzer, 1000); //включаем на 1000 Гц
+      tone(bazzer, 1000);
       delay(500);
-      //delay(10000);
     }
     else
     {
       Serial.println("Місце призначення не досягнуто");
       digitalWrite(ledGPS, LOW);
-        }
+    }
     noTone(bazzer);
     flag = false;
   }
@@ -171,6 +169,4 @@ void loop()
     digitalWrite(ledRed, LOW);
     digitalWrite(ledGren, LOW);
   }
-  //digitalWrite(ledGPS, pinData);
-  //  printValues();
 }

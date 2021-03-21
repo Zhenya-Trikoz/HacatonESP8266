@@ -20,8 +20,7 @@ Adafruit_BME280 bme;
 
 int pinData;
 
-char auth[] = "1vf_k6tCKCDaR1eAskDCKTRfKQkB0zzy";
-// char auth[] = "JaHzq_NqiDuW05l4OdSWtJMOFL6jFrzC";
+char auth[] = "9K4ztpDOvgK9-F70Ho494q84mrOkUQ1w";
 int ledGPS = 12;
 int bazzer = 14;
 int ledGren = 13;

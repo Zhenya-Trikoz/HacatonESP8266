@@ -21,7 +21,7 @@ unsigned long delayTime;
 
 int pinData;
 
-char auth[] = "1vf_k6tCKCDaR1eAskDCKTRfKQkB0zzy";
+char auth[] = "9K4ztpDOvgK9-F70Ho494q84mrOkUQ1w";
 
 int ledGPS = 12;
 int bazzer = 14;
@@ -78,8 +78,8 @@ BLYNK_WRITE(V2)
     double x1 = gps.getLat();
     double y1 = gps.getLon();
 
-    double x2 = 51.5048056;
-    double y2 = 31.3343690;
+    double x2 = 51.5048518;
+    double y2 = 31.3343945;
 
     double dLat = (x2 - x1) * M_PI / 180.0;
     double dLon = (y2 - y1) * M_PI / 180.0;
@@ -112,8 +112,7 @@ BLYNK_WRITE(V2)
     {
       Serial.println("Місце призначення не досягнуто");
       digitalWrite(ledGPS, LOW);
-     
-    }
+        }
     noTone(bazzer);
     flag = false;
   }
